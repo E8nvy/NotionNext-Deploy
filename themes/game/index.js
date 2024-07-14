@@ -138,8 +138,20 @@ const LayoutIndex = props => {
       <div className='p-2 xl:hidden'>
         <Header siteInfo={siteInfo} />
       </div>
-      {/* 最近游戏 */}
-      <GameListRecent />
+  
+      {/* 主区域上方 导览 */}
+      <div className='w-full bg-white dark:bg-hexo-black-gray rounded-lg p-2'>
+        {/* 站点公告信息 */}
+        <Announcement {...props} className='p-2' />
+        {/* 标签汇总             */}
+        <GroupCategory
+          categoryOptions={categoryOptions}
+          currentCategory={currentCategory}
+        />
+        <hr />
+        <GroupTag tagOptions={tagOptions} currentTag={currentTag} />
+      </div>
+
       {/* 游戏列表 */}
       <LayoutPostList {...props} />
 
@@ -148,18 +160,6 @@ const LayoutIndex = props => {
         <AdSlot type='in-article' />
       </div>
 
-      {/* 主区域下方 导览 */}
-      <div className='w-full bg-white dark:bg-hexo-black-gray rounded-lg p-2'>
-        {/* 标签汇总             */}
-        <GroupCategory
-          categoryOptions={categoryOptions}
-          currentCategory={currentCategory}
-        />
-        <hr />
-        <GroupTag tagOptions={tagOptions} currentTag={currentTag} />
-        {/* 站点公告信息 */}
-        <Announcement {...props} className='p-2' />
-      </div>
     </>
   )
 }
@@ -311,9 +311,6 @@ const LayoutSlug = props => {
               {/* 资讯 */}
               <div className='game-info  dark:text-white py-2 px-2 md:px-0 mt-14 md:mt-0'>
                 {/* 关联游戏 */}
-                <div className='w-full'>
-                  <GameListRelate posts={relateGames} />
-                </div>
 
                 {/* 详情描述 */}
                 {post && (
