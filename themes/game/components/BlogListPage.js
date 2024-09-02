@@ -1,3 +1,4 @@
+import { siteConfig } from '@/lib/config'
 import { useGlobal } from '@/lib/global'
 import { siteConfig } from '@/lib/config'
 import { GameListIndexCombine } from './GameListIndexCombine'
